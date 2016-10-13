@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RepoQuiz.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,5 +17,18 @@ namespace RepoQuiz.DAL
         private List<string> LastNames = new List<string>() { "Williams", "Roberts", "Dogskin", "Miller", "Bruton", "Cooper", "Li", "Smith", "Ryan", "Obama" };
 
         private List<string> Majors = new List<string>() { "Journalism", "Basket Weaving", "English", "Stamp Collection", "Cave Drawings", "Unicorn Acquisition", "Crab Finding", "Dog Grooming", "Pig Noises", "Advanced Water Boiling" };
+
+        private string GenerateRandomStringFromList(List<string> target_list)
+        {
+            Random r = new Random();
+            int random_index = r.Next(target_list.Count);
+            string random_string = target_list[random_index];
+            return random_string;
+        }
+        public Student GenerateRandomStudent()
+        {
+            Student generated_student = new Student() { FirstName = GenerateRandomStringFromList(FirstNames), LastName = GenerateRandomStringFromList(LastNames), Major = GenerateRandomStringFromList(Majors) };
+            return generated_student;
+        }
     }
 }
