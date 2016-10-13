@@ -7,8 +7,14 @@ namespace RepoQuiz.DAL
 {
     public class NameGenerator
     {
-        // This class should be used to generate random names and Majors for Students.
-        // This is NOT your Repository
-        // All methods should be Unit Tested :)
+        private string generated_first_name { get; set; }
+        private string generated_last_name { get; set; }
+        private string generated_major { get; set; }
+
+        private List<string> FirstNames = new List<string>() { "Lisa", "Frank", "Thor", "Odin", "Matt", "Bobby", "Lunchbox", "Sally", "Beth", "Layla" };
+
+        private List<string> LastNames = new List<string>() { "Williams", "Roberts", "Dogskin", "Miller", "Bruton", "Cooper", "Li", "Smith", "Ryan", "Obama" };
+
+        private List<string> Majors = new List<string>() { "Journalism", "Basket Weaving", "English", "Stamp Collection", "Cave Drawings", "Unicorn Acquisition", "Crab Finding", "Dog Grooming", "Pig Noises", "Advanced Water Boiling" };
     }
 }
