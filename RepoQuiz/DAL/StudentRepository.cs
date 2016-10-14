@@ -22,7 +22,7 @@ namespace RepoQuiz.DAL
 
         public Student GetStudentById(int id)
         {
-            Student selected_student = Context.Students.FirstOrDefault(s => s.StudentID == id);
+            Student selected_student = Context.Students.SingleOrDefault(s => s.StudentID == id);
             return selected_student;
         }
     }
