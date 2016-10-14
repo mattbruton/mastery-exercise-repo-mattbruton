@@ -20,9 +20,7 @@ namespace RepoQuiz.DAL
 
         private string GenerateRandomStringFromList(List<string> target_list)
         {
-            Random r = new Random();
-            int random_index = r.Next(target_list.Count);
-            string random_string = target_list[random_index];
+            string random_string = target_list[RandomNumber.GenerateRandomNumberStartingAtZero(target_list.Count)];
             return random_string;
         }
         public Student GenerateRandomStudent()
