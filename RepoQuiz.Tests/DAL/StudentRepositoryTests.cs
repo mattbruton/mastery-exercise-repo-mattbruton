@@ -83,5 +83,30 @@ namespace RepoQuiz.Tests.DAL
 
             Assert.AreEqual(expected_student_count, actual_student_count);
         }
+
+        [TestMethod]
+        public void RepoEnsureGetStudentByIdReturnsCorrectStudent()
+        {
+            Student student1 = new Student { StudentID = 1, FirstName = "Student", LastName = "One", Major = "Stuff" };
+            Student student2 = new Student { StudentID = 2, FirstName = "Student", LastName = "Two", Major = "Things" };
+
+            student_list.Add(student1);
+            student_list.Add(student2);
+
+            Student expected_student = student2;
+            Student actual_student = repo.GetStudentById(2);
+
+            Assert.AreEqual(expected_student, actual_student);         
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void RepoGetStudentByIdThrowsExceptionWhenNoStudentWithIdPresent()
+        {
+            int actual_student_id = repo.GetStudentById(2).StudentID;
+            int expected_student_id = 2;
+
+            Assert.AreEqual(expected_student_id, actual_student_id);
+        }
     }
 }

@@ -19,5 +19,11 @@ namespace RepoQuiz.DAL
         {
             return Context.Students.ToList();
         }
+
+        public Student GetStudentById(int id)
+        {
+            Student selected_student = Context.Students.FirstOrDefault(s => s.StudentID == id);
+            return selected_student;
+        }
     }
 }
