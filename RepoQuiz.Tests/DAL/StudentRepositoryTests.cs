@@ -27,6 +27,8 @@ namespace RepoQuiz.Tests.DAL
             mock_student_table.As<IQueryable<Student>>().Setup(x => x.GetEnumerator()).Returns(() => queryable_list.GetEnumerator());
 
             mock_context.Setup(x => x.Students).Returns(mock_student_table.Object);
+
+            mock_student_table.Setup(t => t.Add(It.IsAny<Student>())).Callback((Student v) => student_list.Add(v));
         }
 
         [TestInitialize]
@@ -65,6 +67,19 @@ namespace RepoQuiz.Tests.DAL
 
             int expected_student_count = 0;
             int actual_student_count = actual_students.Count;
+
+            Assert.AreEqual(expected_student_count, actual_student_count);
+        }
+
+        [TestMethod]
+        public void RepoEnsureGetStudentsReturnsAllStudentsWhenStudentsExist()
+        {
+            NameGenerator name_gen = new NameGenerator();
+            student_list.Add(name_gen.GenerateRandomStudent());
+
+            List<Student> actual_students = repo.GetStudents();
+            int actual_student_count = actual_students.Count;
+            int expected_student_count = 1;
 
             Assert.AreEqual(expected_student_count, actual_student_count);
         }
