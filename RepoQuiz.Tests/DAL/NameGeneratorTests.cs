@@ -30,7 +30,7 @@ namespace RepoQuiz.Tests.DAL
         public void NameGeneratorGeneratesFirstNamesCorrectly()
         {
             NameGenerator testGen = new NameGenerator();
-            List<string> testList = new List<string> { "Lisa", "Frank", "Thor", "Odin", "Matt", "Bobby", "Lunchbox", "Sally", "Beth", "Layla" };
+            List<string> testList = new List<string> { "Lisa", "Frank", "Thor", "Odin", "Matt", "Bobby", "Lunchbox", "Sally", "Beth", "Layla", "Ryan", "Paul", "Dan", "Abbie", "Sandy", "Brad", "Callan", "Janelle", "Dhru", "Katye", "Zach", "Joe", "Zoe", "Kate", "Will", "John", "Jurnell", "Blaise", "Tim", "Odie", "Sylvia", "Lunchbox", "Ziggy", "Donald", "Jack", "Emily", "Patricia" };
             Student testStudent = testGen.GenerateRandomStudent();
 
             Assert.IsTrue(testList.Contains(testStudent.FirstName));
@@ -40,7 +40,7 @@ namespace RepoQuiz.Tests.DAL
         public void NameGeneratorGeneratesLastNamesCorrectly()
         {
             NameGenerator testGen = new NameGenerator();
-            List<string> testList = new List<string> { "Williams", "Roberts", "Dogskin", "Miller", "Bruton", "Cooper", "Li", "Smith", "Ryan", "Obama" };
+            List<string> testList = new List<string> { "Williams", "Roberts", "Dogskin", "Miller", "Bruton", "Cooper", "Li", "Smith", "Ryan", "Obama", "Parris", "Anderson", "Manson", "Walters", "Danzig", "Ford", "Washington", "Lincoln", "Bates" };
             Student testStudent = testGen.GenerateRandomStudent();
 
             Assert.IsTrue(testList.Contains(testStudent.LastName));
@@ -54,6 +54,17 @@ namespace RepoQuiz.Tests.DAL
             Student testStudent = testGen.GenerateRandomStudent();
 
             Assert.IsTrue(testList.Contains(testStudent.Major));
+        }
+
+        [TestMethod]
+        public void NameGeneratorStudentIsCreatedWithValuesInAllProperties()
+        {
+            NameGenerator testGen = new NameGenerator();
+            Student test_student = testGen.GenerateRandomStudent();
+
+            Assert.IsNotNull(test_student.FirstName);
+            Assert.IsNotNull(test_student.LastName);
+            Assert.IsNotNull(test_student.Major);
         }
     }
 }
