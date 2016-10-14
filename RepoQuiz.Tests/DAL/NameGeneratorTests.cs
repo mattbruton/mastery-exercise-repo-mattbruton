@@ -55,17 +55,5 @@ namespace RepoQuiz.Tests.DAL
 
             Assert.IsTrue(testList.Contains(testStudent.Major));
         }
-
-        [TestMethod]
-        public void NamesAreLessLikelyToBeDuplicate()
-        {
-            NameGenerator testGen = new NameGenerator();
-            
-            Student s1 = testGen.GenerateRandomStudent();
-            Student s2 = testGen.GenerateRandomStudent();
-
-            Assert.AreNotEqual(s1.FirstName, s2.FirstName);
-        }
-
     }
 }
