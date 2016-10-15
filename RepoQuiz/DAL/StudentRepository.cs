@@ -10,6 +10,11 @@ namespace RepoQuiz.DAL
     {
         public StudentContext Context { get; set; }
 
+        public StudentRepository()
+        {
+            Context = new StudentContext();
+        }
+
         public StudentRepository(StudentContext context)
         {
             Context = context;
