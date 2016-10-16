@@ -5,7 +5,7 @@ using System.Web;
 
 namespace RepoQuiz.DAL
 {
-    public static class RandomNumber
+    public static class RandomNumberGenerator
     {
         private static Random r = new Random();
         public static int GenerateRandomNumberStartingAtZero(int max_value)

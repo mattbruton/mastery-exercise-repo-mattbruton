@@ -18,11 +18,5 @@ namespace RepoQuiz.Controllers
             return View();
         }
 
-        // GET: Student/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
     }
 }
